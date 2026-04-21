@@ -340,11 +340,11 @@
   async function formatLinesForCarrier(carrier, arr) {
     // Forza
     if (isForza(carrier)) {
-      return arr.map(r => {
-        let base = `${r.loadNumber}`;
-        base = addRisk(base, r);
-        return base;
-      });
+     return arr.map(r => {
+  let base = `${r.loadNumber}`;
+  base = addRisk(base, r);
+  return base;
+});
     }
 
     // Value 
@@ -385,19 +385,19 @@
         });
       } else {
         return arr.map(r => {
-          let base = `${r.loadNumber}`;
-          base = addRisk(base, r);
-          return base;
-        });
+  let base = `${r.loadNumber}`;
+  base = addRisk(base, r);
+  return base;
+});
       }
     }
 
-    // Default
+    
     return arr.map(r => {
-      let base = `${r.loadNumber}`;
-      base = addRisk(base, r);
-      return base;
-    });
+  let base = `${r.loadNumber}`;
+  base = addRisk(base, r);
+  return base;
+});
   }
 
   const REACH_KEY = "__ba_reachMap";
@@ -598,6 +598,7 @@
       }, 1200);
     });
 
+    
     const apptSettings = loadApptSettings();
     const puChk  = panel.querySelector("#__ba_copy_pu");
     const delChk = panel.querySelector("#__ba_copy_del");
@@ -644,7 +645,7 @@
 
       item.addEventListener("click", async () => {
         const lines = await formatLinesForCarrier(carrier, arr);
-        await copyText(Array.isArray(lines) ? lines.join("\r\n") : String(lines));
+        await copyText(Array.isArray(lines) ? lines.join("\n") : String(lines));
         ui.info.textContent = `✓ Copiado ${arr.length} líneas de ${carrier}`;
         setTimeout(() => {
           const total = Object.values(groups).reduce((n,v) => n + v.length, 0);
