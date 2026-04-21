@@ -644,7 +644,7 @@
 
       item.addEventListener("click", async () => {
         const lines = await formatLinesForCarrier(carrier, arr);
-        await copyText(Array.isArray(lines) ? lines.join("\n") : String(lines));
+        await copyText(Array.isArray(lines) ? lines.join("\r\n") : String(lines));
         ui.info.textContent = `✓ Copiado ${arr.length} líneas de ${carrier}`;
         setTimeout(() => {
           const total = Object.values(groups).reduce((n,v) => n + v.length, 0);
